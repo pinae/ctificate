@@ -7,10 +7,51 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="de.ct.ctificate.MainActivity">
+    tools:context="de.ct.ctificate.MainActivity"
+    android:elevation="@dimen/abc_button_inset_horizontal_material">
 
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/scrollView">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/urlLabel"
+                android:id="@+id/UrlLabel"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Url"
+                android:inputType="textUri"
+                android:layout_below="@+id/UrlLabel"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/connect"
+                android:id="@+id/button"
+                android:layout_below="@+id/Url"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:minHeight="80dp"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/primary_material_light"
+                android:textSize="@dimen/abc_text_size_large_material" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

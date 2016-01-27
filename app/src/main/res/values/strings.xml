@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">c'tificate</string>
+    <string name="app_name">c\'tificate</string>
+    <string name="connect">connect</string>
+    <string name="urlLabel">HTTPS URL:</string>
 </resources>
