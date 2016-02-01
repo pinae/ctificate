@@ -2,4 +2,13 @@
     <string name="app_name">c\'tificate</string>
     <string name="connect">connect</string>
     <string name="urlLabel">HTTPS URL:</string>
+    <string name="malformattedUrl">The URL is in a wrong format.</string>
+    <string name="connectionIoError">There was a IOError while establishing the connection.</string>
+    <string name="noTLS">TLS is not available.</string>
+    <string name="brokenKeyManagement">The key management is broken.</string>
+    <string name="brokenKeyStore">The key store is broken.</string>
+    <string name="invalidCertificate">The certificate is invalid.</string>
+    <string name="jsonProblem">Could not encode JSON. Your Android must be broken.</string>
+    <string name="urlPreset">https://</string>
+    <string name="certInfoDummy">--- certificate info ---</string>
 </resources>
