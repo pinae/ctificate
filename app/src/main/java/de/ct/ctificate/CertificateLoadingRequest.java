@@ -1,16 +1,11 @@
 package de.ct.ctificate;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.text.Layout;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +27,6 @@ import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
 /**
@@ -97,12 +91,7 @@ public class CertificateLoadingRequest extends AsyncTask<String, Void, JSONObjec
             URL url = new URL(params[0]);
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setSSLSocketFactory(getSSLContext().getSocketFactory());
-            //connection.setRequestMethod("GET");
-            //connection.setRequestProperty("Host", DomainExtractor.extractFullDomain(params[0]));
-            //connection.setRequestProperty("Connection", "keep-alive");
-            //connection.setDoOutput(true);
-            //connection.setDoInput(true);
-            connection.getInputStream();
+            connection.connect();
             Certificate[] chain = connection.getServerCertificates();
             JSONObject result = new JSONObject();
             JSONArray jsonChain = new JSONArray();
@@ -160,10 +149,10 @@ public class CertificateLoadingRequest extends AsyncTask<String, Void, JSONObjec
 
     @Override
     protected void onPostExecute(JSONObject result) {
-        Log.d("result", result.toString());
         if (result.has("error")) {
             try {
                 String error = result.getString("error");
+                Log.e("error", error);
             } catch (JSONException jsonError) {
                 jsonError.printStackTrace();
             }

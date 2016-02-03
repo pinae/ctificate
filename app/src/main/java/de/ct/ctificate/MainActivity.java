@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("firing request", "CertificateLoadingRequest");
                     EditText url = (EditText) findViewById(R.id.Url);
                     new CertificateLoadingRequest(
                             getBaseContext(),

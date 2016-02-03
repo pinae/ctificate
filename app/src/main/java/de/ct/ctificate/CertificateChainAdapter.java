@@ -22,18 +22,15 @@ public class CertificateChainAdapter extends BaseExpandableListAdapter {
     public CertificateChainAdapter(LayoutInflater inflater, JSONArray chain) {
         this.inflater = inflater;
         this.chain = chain;
-        Log.d("Adapter", "created");
     }
 
     @Override
     public int getGroupCount() {
-        Log.d("Adapter group count", Integer.toString(this.chain.length()));
         return this.chain.length();
     }
 
     @Override
     public int getChildrenCount(int i) {
-        Log.d("Adapter child count " + Integer.toString(i), Integer.toString(2));
         return 5;
     }
 
@@ -41,8 +38,6 @@ public class CertificateChainAdapter extends BaseExpandableListAdapter {
     public Object getGroup(int i) {
         try {
             JSONObject singleCertificate = this.chain.getJSONObject(i);
-            Log.d("Adapter get group (" + Integer.toString(i) + ")",
-                    singleCertificate.getString("subject"));
             return singleCertificate.getString("subject");
         } catch (JSONException jsonError) {
             jsonError.printStackTrace();
@@ -97,7 +92,6 @@ public class CertificateChainAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int i, boolean isExpanded, View view, ViewGroup viewGroup) {
-        Log.d("Adapter", "requesting group view");
         String headerTitle = (String) getGroup(i);
         if (view == null) {
             view = this.inflater.inflate(R.layout.certificate, null);
@@ -110,9 +104,7 @@ public class CertificateChainAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-        Log.d("Adapter", "requesting child view");
         final String childText = (String) getChild(i, i1);
-        Log.d("Adapter", childText);
         if (view == null) {
             view = this.inflater.inflate(R.layout.certificate_item, null);
         }
