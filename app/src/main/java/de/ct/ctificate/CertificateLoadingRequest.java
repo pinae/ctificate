@@ -110,13 +110,13 @@ public class CertificateLoadingRequest extends AsyncTask<String, Void, JSONObjec
                 jsonCert.put("pem", "-----BEGIN CERTIFICATE-----\n" +
                         Base64.encodeToString(binaryCertificate, Base64.DEFAULT) +
                         "\n-----END CERTIFICATE-----");
-                MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+                MessageDigest digest = MessageDigest.getInstance("MD5");
                 digest.update(binaryCertificate);
                 jsonCert.put("md5", this.formatWithColons(Hextools.bytesToHex(digest.digest())));
-                digest = java.security.MessageDigest.getInstance("SHA1");
+                digest = MessageDigest.getInstance("SHA1");
                 digest.update(binaryCertificate);
                 jsonCert.put("sha1", this.formatWithColons(Hextools.bytesToHex(digest.digest())));
-                digest = java.security.MessageDigest.getInstance("SHA256");
+                digest = MessageDigest.getInstance("SHA256");
                 digest.update(binaryCertificate);
                 jsonCert.put("sha256", this.formatWithColons(Hextools.bytesToHex(digest.digest())));
                 jsonChain.put(jsonCert);
