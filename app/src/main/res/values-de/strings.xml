@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">c\'tificate</string>
+    <string name="brokenKeyManagement">Fehler in der Schlüsselverwaltung. </string>
+    <string name="brokenKeyStore">Fehler im Zertifikatsspeicher.</string>
+    <string name="certInfoDummy">--- Zertifikatsinformationen ---</string>
+    <string name="connect">verbinden</string>
+    <string name="connectionIoError">Beim Verbindungsaufbau trat ein Ein- Ausgabefehler auf.</string>
+    <string name="invalidCertificate">Das Zertifikat ist ungültig.</string>
+    <string name="jsonProblem">Konnte JSON nicht kodieren. Dein Android ist kaputt.</string>
+    <string name="malformattedUrl">Die URL hat ein ungültiges Format.</string>
+    <string name="noTLS">TLS ist nicht verfügbar.</string>
+    <string name="successfullyTested">Mit dem geladenen CA-Zertifikat wurde erfolgreich eine Verbindung aufgebaut.</string>
+    <string name="testFailed">Test fehlgeschlagen: Android konnte sich nicht mit Hilfe des geladenen CA-Zertifikats verbinden.</string>
+    <string name="testIoProblem">Test fehlgeschlagen: Es gab einen Ein- Ausgabefehler. Möglicherweise hat die Seite einen Passwortschutz.</string>
+    <string name="testKeyManagementProblem">Test fehlgeschlagen: Fehler bei der Schlüsselverwaltung.</string>
+    <string name="testKeyStoreProblem">Test fehlgeschlagen: Fehler im Zertifikatsspeicher.</string>
+    <string name="testNoSuchAlgorithm">Test fehlgeschlagen: TLS oder X509 sind nicht verfügbar.</string>
+    <string name="urlLabel">HTTPS URL: </string>
+</resources>

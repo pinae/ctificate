@@ -6,6 +6,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,10 +36,14 @@ import javax.net.ssl.X509TrustManager;
 public class CertificateLoadingRequest extends AsyncTask<String, Void, JSONObject> {
     private ExpandableListView list;
     private Context context;
+    private String urlString;
+    private TextView testResultView;
 
-    public CertificateLoadingRequest(Context context, ExpandableListView list) {
+    public CertificateLoadingRequest(
+            Context context, ExpandableListView list, TextView testResultView) {
         this.context = context;
         this.list = list;
+        this.testResultView = testResultView;
     }
 
     private JSONObject getErrorResponse(String error) {
@@ -88,7 +93,8 @@ public class CertificateLoadingRequest extends AsyncTask<String, Void, JSONObjec
     @Override
     protected JSONObject doInBackground(String... params) {
         try {
-            URL url = new URL(params[0]);
+            this.urlString = params[0];
+            URL url = new URL(this.urlString);
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setSSLSocketFactory(getSSLContext().getSocketFactory());
             connection.connect();
@@ -163,6 +169,10 @@ public class CertificateLoadingRequest extends AsyncTask<String, Void, JSONObjec
                         (LayoutInflater) this.context.getSystemService(
                                 Context.LAYOUT_INFLATER_SERVICE),
                         chain));
+                new MyCertRequest(
+                        chain.getJSONObject(0).getString("pem"),
+                        this.testResultView
+                        ).execute(this.urlString, "");
             } catch (JSONException jsonError) {
                 jsonError.printStackTrace();
             }

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
                     EditText url = (EditText) findViewById(R.id.Url);
                     new CertificateLoadingRequest(
                             getBaseContext(),
-                            (ExpandableListView) findViewById(R.id.certificateChainView)).execute(
+                            (ExpandableListView) findViewById(R.id.certificateChainView),
+                            (TextView) findViewById(R.id.testResult)).execute(
                             url.getText().toString());
                     url.clearFocus();
                     InputMethodManager imm = (InputMethodManager) getSystemService(

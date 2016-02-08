@@ -11,4 +11,10 @@
     <string name="jsonProblem">Could not encode JSON. Your Android must be broken.</string>
     <string name="urlPreset">https://</string>
     <string name="certInfoDummy">--- certificate info ---</string>
+    <string name="successfullyTested">Successfully established a connection using the CA certificate.</string>
+    <string name="testFailed">The connection failed. Android could not connect using the CA certificate.</string>
+    <string name="testIoProblem">The connection failed. There was an IO Error. Maybe the page is password-protected.</string>
+    <string name="testKeyStoreProblem">The connection failed. The KeyStore could not initialize.</string>
+    <string name="testKeyManagementProblem">The connection failed. There was an error with the key management.</string>
+    <string name="testNoSuchAlgorithm">The connection failed. TLS or X509 are not supported.</string>
 </resources>
